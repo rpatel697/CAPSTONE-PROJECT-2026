@@ -1,13 +1,13 @@
-
+import { House, User, WalletCards, Settings } from "lucide-react";
 export default function Sidebar() {
   return (
       <aside className="hidden md:block w-[240px] fixed top-16 left-0 h-[calc(100vh-4rem)] border-r border-[#ECECF2] bg-[#FCFCFE]">
         <div className="h-full flex flex-col p-4">
           <nav className="space-y-2 text-sm">
   
-              <div className="flex items-center gap-2 px-3 py-2 text-[#3F4454] font-medium hover:bg-[#F6F7FB] rounded-lg cursor-pointer">
-              <span className="text-base">🏠</span>
-              <span>Home</span>
+              <div className="group flex items-center gap-2 px-3 py-2 text-[#3F4454] font-medium rounded-lg cursor-pointer transition-all duration-200 hover:bg-[#F3F4F7] hover:translate-x-1 hover:shadow-sm hover:text-[#221F35]">
+                <House className="h-4 w-4 transition-all duration-200 group-hover:scale-110 group-hover:-translate-y-[1px]" />
+                <span>Home</span>
               </div>
 
               <div className="border-t border-[#E7E6E7] my-3"></div>
@@ -16,18 +16,18 @@ export default function Sidebar() {
                 Profile
               </div>
 
-              <div className="flex items-center gap-2 px-3 py-2 bg-[#FDEEEF] text-[#FF3864] font-semibold  rounded-lg">
-                <span className="text-base">👤</span>
-                <span>Profile</span>
-              </div>
+        <div className="group flex items-center gap-2 px-3 py-2 bg-[#FDEEEF] text-[#FF3864] font-semibold rounded-lg cursor-pointer transition-all duration-200 hover:bg-[#F9E3E6] hover:translate-x-1 hover:shadow-sm">
+          <User className="h-4 w-4 transition-all duration-200 group-hover:scale-110" />
+          <span>Profile</span>
+        </div>
 
-              <div className="flex items-center gap-2 px-3 py-2 text-[#3F4454] font-medium hover:bg-[#F6F7FB] rounded-lg cursor-pointer">
-              <span className="text-base">🎓</span>
+             <div className="group flex items-center gap-2 px-3 py-2 text-[#3F4454] font-medium rounded-lg cursor-pointer transition-all duration-200 hover:bg-[#F3F4F7] hover:translate-x-1 hover:shadow-sm hover:text-[#221F35]">
+                <WalletCards className="h-4 w-4 transition-all duration-200 group-hover:scale-110 group-hover:-rotate-6" />
                 <span>Credential Wallet</span>
               </div>
 
-              <div className="flex items-center gap-2 px-3 py-2 text-[#3F4454] font-medium hover:bg-[#F6F7FB] rounded-lg cursor-pointer">
-                <span className="text-base">⚙️</span>
+             <div className="group flex items-center gap-2 px-3 py-2 text-[#3F4454] font-medium rounded-lg cursor-pointer transition-all duration-200 hover:bg-[#F3F4F7] hover:translate-x-1 hover:shadow-sm hover:text-[#221F35]">
+                <Settings className="h-4 w-4 transition-all duration-200 group-hover:scale-110 group-hover:rotate-45" />
                 <span>Settings</span>
               </div>
 

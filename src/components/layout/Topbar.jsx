@@ -11,11 +11,12 @@ import {
 export default function Topbar() {
   return (
     <div className="h-16 border-b border-[#ECECF2] flex items-center justify-between px-8 w-full bg-white">
-      <div className="flex items-center gap-2.5">
-        <div className="text-xl font-black tracking-tight">
-          <span className="text-[#FF3864]">hatch</span>
-          <span className="text-[#2D2A3A]">loom</span>
-        </div>
+      <div className="flex items-center gap-5">
+        <img
+              src="/hatch.png"
+              alt="Hatchloom logo"
+              className="h-8 w-auto object-contain"
+            />
 
         <span className="rounded-full bg-[#DDF5E7] px-4 py-1 text-xs font-semibold text-[#2FAF62]">
           Student
@@ -27,46 +28,42 @@ export default function Topbar() {
       </div>
 
       <div className="hidden md:flex items-center gap-4 text-sm font-semibold text-[#5F667A]">
-        <div className="flex items-center gap-2">
-          <Compass size={16} className="text-[#7A6FA0]" />
-          <span>Explore</span>
-        </div>
+        <button className="flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-[#5F667A] transition-all duration-200 hover:bg-[#F4F0FF] hover:text-[#FB497D] hover:-translate-y-[1px] cursor-pointer">
+  <Compass size={16} className="text-[#7A6FA0]" />
+  <span>Explore</span>
+</button>
 
-        <div className="flex items-center gap-2">
-          <Link2 size={18} className="text-[#B497BD]" />
-          <span>Connect</span>
-        </div>
+<button className="flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-[#5F667A] transition-all duration-200 hover:bg-[#F4F0FF] hover:text-[#FB497D] hover:-translate-y-[1px] cursor-pointer">
+  <Link2 size={18} className="text-[#B497BD]" />
+  <span>Connect</span>
+</button>
 
-        <div className="flex items-center gap-2">
-          <Rocket size={16} className="text-[#FF6B8A]" />
-          <span>Launch</span>
-        </div>
+<button className="flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-[#5F667A] transition-all duration-200 hover:bg-[#F4F0FF] hover:text-[#FB497D] hover:-translate-y-[1px] cursor-pointer">
+  <Rocket size={16} className="text-[#FB497D]" />
+  <span>Launch</span>
+</button>
       </div>
 
-      <div className="flex items-center gap-2">
-        <div className="flex items-center gap-2 rounded-full border border-[#FFD7A6] bg-[#FFF4E4] px-3 py-1.5 text-xs font-bold text-[#F28A00]">
-          <Flame size={16} />
-          <span>18-day streak</span>
-        </div>
+      <div className="flex items-center gap-3">
+  <button className="rounded-full border border-[#F5C67A] bg-[#FFF6E8] px-4 py-2 text-sm font-semibold text-[#F39A1E] transition-all duration-200 hover:scale-[1.02] hover:shadow-sm">
+    <span className="flex items-center gap-2">
+      <Flame size={16} />
+      <span>18-day streak</span>
+    </span>
+  </button>
 
-        <div className="flex items-center gap-2 rounded-full border border-[#CDEFF4] bg-[#EAFBFF] px-3 py-1.5 text-xs font-bold text-[#1F9DBB]">
-          <Zap size={16} />
-          <span>2,450 XP</span>
-        </div>
+  <button className="rounded-full bg-[#EAF8FF] px-4 py-2 text-sm font-semibold text-[#1F9AD6] transition-all duration-200 hover:scale-[1.02] hover:shadow-sm">
+    <span className="flex items-center gap-2">
+      <Zap size={16} />
+      <span>2,450 XP</span>
+    </span>
+  </button>
 
-        <div className="relative flex h-9 w-9 border border-[#E6CFF3] items-center justify-center rounded-full bg-[#F7F2FA]">
-          <Mail size={16} className="text-[#8B79A8]" />
-          <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#FF3864] text-[9px] font-bold text-white">
-            3
-          </span>
-        </div>
+  
 
-        <div className="relative flex h-9 w-9 border border-[#F1D7A6] items-center justify-center rounded-full bg-[#FFF7E8]">
-          <Bell size={17} className="text-[#F2A100]" />
-          <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-[#FF3864] text-[9px] font-bold text-white">
-            3
-          </span>
-        </div>
+  <button className="group bell-hover relative flex h-10 w-10 items-center justify-center rounded-full bg-[#FFF3E8] transition-all duration-200 hover:scale-110 hover:bg-[#545454]">
+  <Bell className="bell-icon text-[#F39A1E] transition-all duration-200 group-hover:text-[#F6B53F]" size={18} />
+</button>
 
         <div className="flex items-center gap-3 rounded-full bg-[#F7F7FB] px-2.5 py-1">
           <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#2D2A3A] text-xl">
@@ -77,6 +74,7 @@ export default function Topbar() {
           </span>
         </div>
       </div>
+      
     </div>
   )
 }

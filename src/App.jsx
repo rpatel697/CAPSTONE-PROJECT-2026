@@ -113,32 +113,31 @@ export default function HatchloomDashboardPlaceholder() {
     Recent Activity
   </h3>
 
-  <div className="space-y-2">
+  <div>
     {[
       ["🏆", "Earned Entrepreneur’s Choice in Design Thinking 101", "Today, 9:14 AM"],
       ["📝", "Submitted Sustainable Packaging Redesign solution", "Yesterday, 4:30 PM"],
       ["🎤", "Attended Pitch Day live session with Sarah Chen", "Yesterday, 3:00 PM"],
       ["📊", "BMC review feedback available for Flavour Butter Co.", "Feb 15, 11:30 AM"],
       ["✅", "Completed Financial Literacy 102 — all 4 blocks done", "Feb 10, 2:15 PM"],
-    ].map(([icon, text, time], i) => (
-      <div key={i} className="flex items-start gap-3">
-        
-        <div className="text-sm">{icon}</div>
+    ].map(([icon, text, time], i, arr) => (
+      <div key={i} className="flex items-center gap-3">
+        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#F8F4F7] text-sm">
+          {icon}
+        </div>
 
-        <div>
-          <p className="text-[13px] text-[#26233A]">
-            {text}
-          </p>
-
-          <p className="text-[10px] text-[#7B8194]">
-            {time}
-              </p>
-            </div>
-          </div>
-        ))}
+        <div
+          className={`flex-1 py-3 ${
+            i !== arr.length - 1 ? "border-b border-[#ECECF2]" : ""
+          }`}
+        >
+          <p className="text-[13px] text-[#26233A]">{text}</p>
+          <p className="mt-1 text-[10px] text-[#7B8194]">{time}</p>
+        </div>
       </div>
-    </div>
-
+    ))}
+  </div>
+</div>
           </main>
 
         </div>
