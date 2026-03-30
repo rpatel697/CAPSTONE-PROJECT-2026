@@ -1,11 +1,12 @@
 import Topbar from "./components/layout/Topbar"
 import Sidebar from "./components/layout/Sidebar"
 import ProfileHeader from "./components/dashboard/ProfileHeader"
-
+import { useState } from "react";
 import GrowthSection from "./components/dashboard/GrowthSection"
 import React from "react";
 
 export default function HatchloomDashboardPlaceholder() {
+ const [activeTab, setActiveTab] = useState("courses");
   return ( 
       <div className="min-h-screen bg-[#F6F7FB]">
 
@@ -28,14 +29,55 @@ export default function HatchloomDashboardPlaceholder() {
           <GrowthSection />
 
             <section className="rounded-3xl border border-[#ECECF2] bg-white overflow-hidden">
-              <div className="flex gap-8 border-b border-[#ECECF2] px-8 pt-4">
-                <button className="border-b-2 border-[#FF3864] pb-3 text-sm font-bold text-[#FF3864]">My Courses</button>
-                <button className="pb-2 text-sm font-bold text-[#7B8194]">My Work</button>
-                <button className="pb-2 text-sm font-bold text-[#7B8194]">Credentials</button>
+            <div className="flex items-center gap-6 border-b border-[#ECECF2] px-8">
+                <button
+                  onClick={() => setActiveTab("courses")}
+                  className={`relative pb-4 pt-5 text-[15px] font-semibold transition-all duration-200 ${
+                    activeTab === "courses"
+                      ? "text-[#FF3864]"
+                      : "text-[#7B8194] hover:text-[#3F4454]"
+                  }`}
+                >
+                  My Courses
+                  {activeTab === "courses" && (
+                    <span className="absolute bottom-0 left-0 h-[2px] w-full rounded-full bg-[#FF3864]" />
+                  )}
+                </button>
+
+                <button
+                  onClick={() => setActiveTab("work")}
+                  className={`relative pb-4 pt-5 text-[15px] font-semibold transition-all duration-200 ${
+                    activeTab === "work"
+                      ? "text-[#FF3864]"
+                      : "text-[#7B8194] hover:text-[#3F4454]"
+                  }`}
+                >
+                  My Work
+                  {activeTab === "work" && (
+                    <span className="absolute bottom-0 left-0 h-[2px] w-full rounded-full bg-[#FF3864]" />
+                  )}
+                </button>
+
+                <button
+                  onClick={() => setActiveTab("credentials")}
+                  className={`relative pb-4 pt-5 text-[15px] font-semibold transition-all duration-200 ${
+                    activeTab === "credentials"
+                      ? "text-[#FF3864]"
+                      : "text-[#7B8194] hover:text-[#3F4454]"
+                  }`}
+                >
+                  Credentials
+                  {activeTab === "credentials" && (
+                    <span className="absolute bottom-0 left-0 h-[2px] w-full rounded-full bg-[#FF3864]" />
+                  )}
+                </button>
               </div>
-              
-              
-              <div className="space-y-8 p-8">
+
+
+                              {activeTab === "courses" && (
+                <div className="space-y-8 p-8">
+                 
+                    
                 <div>
                   <h3 className="text-sm font-black text-[#221F35]">In Progress (3)</h3>
                   <div className="mt-4 space-y-4">
@@ -73,6 +115,23 @@ export default function HatchloomDashboardPlaceholder() {
                   </div>
                 </div>
               </div>
+
+              )}
+
+            {activeTab === "work" && (
+              <div className="p-8 text-sm text-[#7B8194]">
+                My Work content coming soon.
+              </div>
+            )}
+
+            {activeTab === "credentials" && (
+              <div className="p-8 text-sm text-[#7B8194]">
+                Credentials content coming soon.
+              </div>
+            )}
+              
+             
+
             </section>
 
             {/* BADGES EARNED */}

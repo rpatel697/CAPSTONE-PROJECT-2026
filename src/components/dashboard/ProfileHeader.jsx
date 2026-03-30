@@ -5,9 +5,9 @@
                 <div className="flex gap-6 items-start">
                   <div className="h-24 w-24 rounded-full bg-[#2D2A3A] ring-4 ring-[#F8DCE4] flex items-center justify-center text-5xl">🦊</div>
                   <div>
-                    <div className="flex items-center gap-3 flex-wrap">
+                    <div className="flex items-center gap-4 flex-wrap">
                       <h1 className="text-2xl font-black tracking-tight text-[#221F35]">FireFox</h1>
-                      <button className="rounded-xl border border-[#ECECF2] px-4 py-2 text-sm font-semibold text-[#5F667A]">✏️ Edit</button>
+                      <button className="rounded-xl border border-[#ECECF2] px-3 py-1.5 text-[13px] font-semibold text-[#5F667A]">✏️ Edit</button>
                     </div>
                     <p className="mt-1 text-sm text-[#5F667A]">@firefox_hl</p>
                     <p className="mt-3 text-sm max-w-2xl text-[#43485A]">Butter entrepreneur. Design thinker. Grade 8 at Ridgewood Academy.</p>

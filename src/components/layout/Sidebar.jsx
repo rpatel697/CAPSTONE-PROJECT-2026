@@ -33,8 +33,13 @@ export default function Sidebar() {
 
           </nav>
 
-            <button className="mt-auto w-full rounded-2xl bg-[#FF3864] px-5 py-4 text-base font-bold text-white shadow-lg shadow-[#FF3864]/20">
-              Contact Hatchloom
+            <button className="group mt-auto w-full rounded-2xl bg-[#FF3864] px-5 py-4 text-[14px] font-semibold text-white shadow-lg shadow-[#FF3864]/20 cursor-pointer transition-all duration-200 hover:bg-[#545454] hover:scale-[1.03] hover:-translate-y-[1px] hover:shadow-xl">
+              <span className="inline-flex items-center gap-2">
+                <span className="transition-transform duration-200 group-hover:translate-x-1">💬</span>
+                <span className="transition-all duration-200 group-hover:tracking-wide">
+                  Contact Hatchloom
+                </span>
+              </span>
             </button>
 
         </div>
