@@ -2,8 +2,9 @@ import Topbar from "./components/layout/Topbar"
 import Sidebar from "./components/layout/Sidebar"
 import ProfileHeader from "./components/dashboard/ProfileHeader"
 import { useState } from "react";
-import GrowthSection from "./components/dashboard/GrowthSection"
+import GrowthSection from "./components/dashboard/GrowthSection";
 import React from "react";
+import MyWork from "./components/dashboard/MyWork";
 
 export default function HatchloomDashboardPlaceholder() {
  const [activeTab, setActiveTab] = useState("courses");
@@ -118,11 +119,7 @@ export default function HatchloomDashboardPlaceholder() {
 
               )}
 
-            {activeTab === "work" && (
-              <div className="p-8 text-sm text-[#7B8194]">
-                My Work content coming soon.
-              </div>
-            )}
+            {activeTab === "work" && <MyWork />}
 
             {activeTab === "credentials" && (
               <div className="p-8 text-sm text-[#7B8194]">
