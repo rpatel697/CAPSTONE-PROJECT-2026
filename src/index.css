@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+
+@keyframes bellRing {
+  0% { transform: rotate(0deg) scale(1); }
+  15% { transform: rotate(12deg) scale(1.08); }
+  30% { transform: rotate(-10deg) scale(1.08); }
+  45% { transform: rotate(8deg) scale(1.08); }
+  60% { transform: rotate(-6deg) scale(1.06); }
+  75% { transform: rotate(4deg) scale(1.04); }
+  100% { transform: rotate(0deg) scale(1.02); }
+}
+
+@keyframes mailPop {
+  0% { transform: translateY(0) scale(1); }
+  40% { transform: translateY(-2px) scale(1.1); }
+  70% { transform: translateY(0px) scale(1.06); }
+  100% { transform: translateY(0) scale(1.02); }
+}
+
+.bell-hover:hover .bell-icon {
+  animation: bellRing 0.45s ease-in-out;
+}
+
+.mail-hover:hover .mail-icon {
+  animation: mailPop 0.35s ease-out;
+}
