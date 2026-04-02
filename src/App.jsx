@@ -3,9 +3,10 @@ import Sidebar from "./components/layout/Sidebar"
 import ProfileHeader from "./components/dashboard/ProfileHeader"
 import MyCourses from "./components/dashboard/MyCourses";
 import { useState } from "react";
-import GrowthSection from "./components/dashboard/GrowthSection"
+import GrowthSection from "./components/dashboard/GrowthSection";
 import React from "react";
-
+import MyWork from "./components/dashboard/MyWork";
+import Credentials from "./components/dashboard/Credentials";
 export default function HatchloomDashboardPlaceholder() {
  const [activePage, setActivePage] = useState("profile");
   
