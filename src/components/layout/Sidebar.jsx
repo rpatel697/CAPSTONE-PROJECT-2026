@@ -1,48 +1,148 @@
-import { House, User, WalletCards, Settings } from "lucide-react";
-export default function Sidebar() {
+import {
+  House,
+  BookOpen,
+  BriefcaseBusiness,
+  Trophy,
+  BadgeCheck,
+  Users,
+  Handshake,
+  CalendarDays,
+  User,
+  Settings,
+  MessageCircle,
+} from "lucide-react";
+
+function SidebarItem({ icon: Icon, label, isActive, onClick, iconClass = "" }) {
   return (
-      <aside className="hidden md:block w-[240px] fixed top-16 left-0 h-[calc(100vh-4rem)] border-r border-[#ECECF2] bg-[#FCFCFE]">
-        <div className="h-full flex flex-col p-4">
-          <nav className="space-y-2 text-sm">
-  
-              <div className="group flex items-center gap-2 px-3 py-2 text-[#3F4454] font-medium rounded-lg cursor-pointer transition-all duration-200 hover:bg-[#F3F4F7] hover:translate-x-1 hover:shadow-sm hover:text-[#221F35]">
-                <House className="h-4 w-4 transition-all duration-200 group-hover:scale-110 group-hover:-translate-y-[1px]" />
-                <span>Home</span>
-              </div>
+    <button
+      onClick={onClick}
+      className={`group flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left transition-all duration-200 ${
+        isActive
+          ? "bg-[#FDEEEF] text-[#FF3864] shadow-sm"
+          : "text-[#3F4454] hover:bg-[#F6F7FB] hover:text-[#221F35] hover:translate-x-1"
+      }`}
+    >
+      <Icon
+        className={`h-4 w-4 shrink-0 transition-all duration-200 group-hover:scale-110 ${iconClass} ${
+          isActive ? "text-[#FF3864]" : ""
+        }`}
+      />
+      <span className={`text-[15px] ${isActive ? "font-semibold" : "font-medium"}`}>
+        {label}
+      </span>
+    </button>
+  );
+}
 
-              <div className="border-t border-[#E7E6E7] my-3"></div>
-              
-              <div className="pt-4 pb-1 text-[14px] font-bold tracking-[0.1em] text-[#6D6D6D] uppercase">
-                Profile
-              </div>
+function SidebarGroup({ title, children }) {
+  return (
+    <div className="mt-6 first:mt-0">
+      <p className="mb-2 px-3 text-[11px] font-semibold uppercase tracking-[0.08em] text-[#A0A6B8]">
+        {title}
+      </p>
+      <div className="space-y-1">{children}</div>
+    </div>
+  );
+}
 
-        <div className="group flex items-center gap-2 px-3 py-2 bg-[#FDEEEF] text-[#FF3864] font-semibold rounded-lg cursor-pointer transition-all duration-200 hover:bg-[#F9E3E6] hover:translate-x-1 hover:shadow-sm">
-          <User className="h-4 w-4 transition-all duration-200 group-hover:scale-110" />
-          <span>Profile</span>
-        </div>
+export default function Sidebar({ activePage, setActivePage }) {
+  return (
+   <aside className="fixed left-0 top-[64px] z-30 h-[calc(100vh-80px)] w-[240px] border-r border-[#ECECF2] bg-white">
+  <div className="flex h-full flex-col overflow-y-auto px-4 py-5">
+   <SidebarGroup title="Main">
+        <SidebarItem
+          icon={House}
+          label="Home"
+          isActive={activePage === "home"}
+          onClick={() => setActivePage("home")}
+          iconClass="group-hover:-translate-y-[1px]"
+        />
 
-             <div className="group flex items-center gap-2 px-3 py-2 text-[#3F4454] font-medium rounded-lg cursor-pointer transition-all duration-200 hover:bg-[#F3F4F7] hover:translate-x-1 hover:shadow-sm hover:text-[#221F35]">
-                <WalletCards className="h-4 w-4 transition-all duration-200 group-hover:scale-110 group-hover:-rotate-6" />
-                <span>Credential Wallet</span>
-              </div>
+        <SidebarItem
+          icon={BookOpen}
+          label="My Courses"
+          isActive={activePage === "courses"}
+          onClick={() => setActivePage("courses")}
+          iconClass="group-hover:rotate-[-6deg]"
+        />
 
-             <div className="group flex items-center gap-2 px-3 py-2 text-[#3F4454] font-medium rounded-lg cursor-pointer transition-all duration-200 hover:bg-[#F3F4F7] hover:translate-x-1 hover:shadow-sm hover:text-[#221F35]">
-                <Settings className="h-4 w-4 transition-all duration-200 group-hover:scale-110 group-hover:rotate-45" />
-                <span>Settings</span>
-              </div>
+        <SidebarItem
+          icon={BriefcaseBusiness}
+          label="My Work"
+          isActive={activePage === "work"}
+          onClick={() => setActivePage("work")}
+          iconClass="group-hover:-translate-y-[1px]"
+        />
 
-          </nav>
+        <SidebarItem
+          icon={Trophy}
+          label="Challenges"
+          isActive={activePage === "challenges"}
+          onClick={() => setActivePage("challenges")}
+          iconClass="group-hover:rotate-[8deg]"
+        />
 
-            <button className="group mt-auto w-full rounded-2xl bg-[#FF3864] px-5 py-4 text-[14px] font-semibold text-white shadow-lg shadow-[#FF3864]/20 cursor-pointer transition-all duration-200 hover:bg-[#545454] hover:scale-[1.03] hover:-translate-y-[1px] hover:shadow-xl">
-              <span className="inline-flex items-center gap-2">
-                <span className="transition-transform duration-200 group-hover:translate-x-1">💬</span>
-                <span className="transition-all duration-200 group-hover:tracking-wide">
-                  Contact Hatchloom
-                </span>
-              </span>
-            </button>
+        <SidebarItem
+          icon={BadgeCheck}
+          label="Credentials"
+          isActive={activePage === "credentials"}
+          onClick={() => setActivePage("credentials")}
+          iconClass="group-hover:scale-110"
+        />
+      </SidebarGroup>
 
-        </div>
-      </aside>
-                )
-            }
+      <SidebarGroup title="Connect">
+        <SidebarItem
+          icon={Users}
+          label="Community"
+          isActive={activePage === "community"}
+          onClick={() => setActivePage("community")}
+          iconClass="group-hover:-translate-y-[1px]"
+        />
+
+        <SidebarItem
+          icon={Handshake}
+          label="Mentors"
+          isActive={activePage === "mentors"}
+          onClick={() => setActivePage("mentors")}
+          iconClass="group-hover:rotate-[-6deg]"
+        />
+
+        <SidebarItem
+          icon={CalendarDays}
+          label="Events"
+          isActive={activePage === "events"}
+          onClick={() => setActivePage("events")}
+          iconClass="group-hover:scale-110"
+        />
+      </SidebarGroup>
+
+      <SidebarGroup title="Account">
+        <SidebarItem
+          icon={User}
+          label="Profile"
+          isActive={activePage === "profile"}
+          onClick={() => setActivePage("profile")}
+          iconClass="group-hover:scale-110"
+        />
+
+        <SidebarItem
+          icon={Settings}
+          label="Settings"
+          isActive={activePage === "settings"}
+          onClick={() => setActivePage("settings")}
+          iconClass="group-hover:rotate-45"
+        />
+      </SidebarGroup>
+
+      <button className="group mt-6 flex w-full items-center justify-center gap-2 rounded-2xl bg-[#FF3864] px-4 py-4 text-sm font-bold text-white shadow-lg shadow-[#FF3864]/20 transition-all duration-200 hover:-translate-y-[1px] hover:scale-[1.02] hover:bg-[#545454] hover:shadow-xl">
+        <MessageCircle className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-[1px] group-hover:scale-110" />
+        <span className="transition-all duration-200 group-hover:tracking-[0.01em]">
+          Contact Hatchloom
+        </span>
+      </button>
+
+    </div>
+    </aside>
+  );
+}

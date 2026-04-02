@@ -8,7 +8,9 @@ import MyWork from "./components/dashboard/MyWork";
 
 export default function HatchloomDashboardPlaceholder() {
  const [activeTab, setActiveTab] = useState("courses");
-  return ( 
+ const [activePage, setActivePage] = useState("profile");
+  
+ return ( 
       <div className="min-h-screen bg-[#F6F7FB]">
 
     {/* 🔴 TOPBAR (FULL WIDTH — ROOF) */}
@@ -20,16 +22,17 @@ export default function HatchloomDashboardPlaceholder() {
     <div className="flex pt-[80px]">
 
       {/* SIDEBAR */}
-      <Sidebar />
+     <Sidebar activePage={activePage} setActivePage={setActivePage} />
 
-      {/* MAIN CONTENT */}
       <div className="ml-[240px] w-full h-[calc(100vh-80px)] overflow-y-auto">
 
+      {/* MAIN CONTENT */}
+      {activePage === "profile" && (
         <main className="p-4 md:p-8 space-y-5">
           <ProfileHeader />
           <GrowthSection />
 
-            <section className="rounded-3xl border border-[#ECECF2] bg-white overflow-hidden">
+          <section className="rounded-3xl border border-[#ECECF2] bg-white overflow-hidden">
             <div className="flex items-center gap-6 border-b border-[#ECECF2] px-8">
                 <button
                   onClick={() => setActiveTab("courses")}
@@ -126,10 +129,7 @@ export default function HatchloomDashboardPlaceholder() {
                 Credentials content coming soon.
               </div>
             )}
-              
-             
-
-            </section>
+          </section>
 
             {/* BADGES EARNED */}
 <div className="mt-6">
@@ -161,6 +161,7 @@ export default function HatchloomDashboardPlaceholder() {
     ))}
   </div>
 </div>
+{/* Badges Earned ends here */}
 
 
 {/* RECENT ACTIVITY */}
@@ -169,37 +170,73 @@ export default function HatchloomDashboardPlaceholder() {
     Recent Activity
   </h3>
 
-  <div>
-    {[
-      ["🏆", "Earned Entrepreneur’s Choice in Design Thinking 101", "Today, 9:14 AM"],
-      ["📝", "Submitted Sustainable Packaging Redesign solution", "Yesterday, 4:30 PM"],
-      ["🎤", "Attended Pitch Day live session with Sarah Chen", "Yesterday, 3:00 PM"],
-      ["📊", "BMC review feedback available for Flavour Butter Co.", "Feb 15, 11:30 AM"],
-      ["✅", "Completed Financial Literacy 102 — all 4 blocks done", "Feb 10, 2:15 PM"],
-    ].map(([icon, text, time], i, arr) => (
-      <div key={i} className="flex items-center gap-3">
-        <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#F8F4F7] text-sm">
-          {icon}
-        </div>
+      <div>
+            {[
+              ["🏆", "Earned Entrepreneur’s Choice in Design Thinking 101", "Today, 9:14 AM"],
+              ["📝", "Submitted Sustainable Packaging Redesign solution", "Yesterday, 4:30 PM"],
+              ["🎤", "Attended Pitch Day live session with Sarah Chen", "Yesterday, 3:00 PM"],
+              ["📊", "BMC review feedback available for Flavour Butter Co.", "Feb 15, 11:30 AM"],
+              ["✅", "Completed Financial Literacy 102 — all 4 blocks done", "Feb 10, 2:15 PM"],
+            ].map(([icon, text, time], i, arr) => (
 
-        <div
-          className={`flex-1 py-3 ${
-            i !== arr.length - 1 ? "border-b border-[#ECECF2]" : ""
-          }`}
-        >
-          <p className="text-[13px] text-[#26233A]">{text}</p>
-          <p className="mt-1 text-[10px] text-[#7B8194]">{time}</p>
-        </div>
-      </div>
-    ))}
-  </div>
-</div>
-          </main>
+               <div key={i} className="flex items-center gap-3">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#F8F4F7] text-sm">
+                      {icon}
+                  </div>
+
+                  <div
+                    className={`flex-1 py-3 ${
+                      i !== arr.length - 1 ? "border-b border-[#ECECF2]" : ""
+                    }`}
+                  >
+                    <p className="text-[13px] text-[#26233A]">{text}</p>
+                    <p className="mt-1 text-[10px] text-[#7B8194]">{time}</p>
+                  </div>
+               </div>
+            ))}
+          </div>
 
         </div>
+        {/* Recent Activity ends here */}
+</main>
+      )}
 
-      </div>
+           {activePage === "home" && (
+  <div className="flex min-h-[calc(100vh-180px)] items-center justify-center p-8">
+    <div className="w-full max-w-xl rounded-3xl border border-[#ECECF2] bg-white p-10 text-center shadow-sm">
+      <h2 className="text-xl font-bold text-[#221F35]">Home</h2>
+      <p className="mt-3 text-sm text-[#7B8194]">
+        Home page coming soon.
+      </p>
     </div>
+  </div>
+)}
+
+       {activePage === "wallet" && (
+  <div className="flex min-h-[calc(100vh-180px)] items-center justify-center p-8">
+    <div className="w-full max-w-xl rounded-3xl border border-[#ECECF2] bg-white p-10 text-center shadow-sm">
+      <h2 className="text-xl font-bold text-[#221F35]">Credential Wallet</h2>
+      <p className="mt-3 text-sm text-[#7B8194]">
+        Credential Wallet page coming soon.
+      </p>
+    </div>
+  </div>
+)}
+
+       {activePage === "settings" && (
+  <div className="flex min-h-[calc(100vh-180px)] items-center justify-center p-8">
+    <div className="w-full max-w-xl rounded-3xl border border-[#ECECF2] bg-white p-10 text-center shadow-sm">
+      <h2 className="text-xl font-bold text-[#221F35]">Settings</h2>
+      <p className="mt-3 text-sm text-[#7B8194]">
+        Settings page coming soon.
+      </p>
+    </div>
+  </div>
+)}
+
+</div>
+</div>
+</div>
   )
 }
 
