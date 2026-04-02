@@ -7,9 +7,6 @@ body {
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-
 @keyframes bellRing {
   0% { transform: rotate(0deg) scale(1); }
   15% { transform: rotate(12deg) scale(1.08); }

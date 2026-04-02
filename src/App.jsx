@@ -5,7 +5,7 @@ import { useState } from "react";
 import GrowthSection from "./components/dashboard/GrowthSection";
 import React from "react";
 import MyWork from "./components/dashboard/MyWork";
-
+import Credentials from "./components/dashboard/Credentials";
 export default function HatchloomDashboardPlaceholder() {
  const [activeTab, setActiveTab] = useState("courses");
  const [activePage, setActivePage] = useState("profile");
@@ -71,9 +71,10 @@ export default function HatchloomDashboardPlaceholder() {
                   }`}
                 >
                   Credentials
-                  {activeTab === "credentials" && (
-                    <span className="absolute bottom-0 left-0 h-[2px] w-full rounded-full bg-[#FF3864]" />
-                  )}
+                 {activeTab === "credentials" && (
+                 <span className="absolute bottom-0 left-0 h-[2px] w-full rounded-full bg-[#FF3864]" />
+                 )}
+                 
                 </button>
               </div>
 
@@ -124,12 +125,12 @@ export default function HatchloomDashboardPlaceholder() {
 
             {activeTab === "work" && <MyWork />}
 
-            {activeTab === "credentials" && (
-              <div className="p-8 text-sm text-[#7B8194]">
-                Credentials content coming soon.
-              </div>
-            )}
-          </section>
+            {activeTab === "credentials" && <Credentials />  
+            }
+              
+             
+
+            </section>
 
             {/* BADGES EARNED */}
 <div className="mt-6">
