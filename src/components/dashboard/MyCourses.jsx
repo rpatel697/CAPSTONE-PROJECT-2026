@@ -168,13 +168,9 @@ export default function MyCourses() {
         </div>
       )}
 
-      {activeTab === "work" && (
-        <div className="p-8 text-sm text-[#7B8194]">My Work content coming soon</div>
-      )}
+     {activeTab === "work" && <MyWork />}
 
-      {activeTab === "credentials" && (
-        <div className="p-8 text-sm text-[#7B8194]">Credentials content coming soon</div>
-      )}
+      {activeTab === "credentials" && <Credentials  />}
     </section>
   );
 }
