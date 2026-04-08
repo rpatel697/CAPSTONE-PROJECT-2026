@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import MyWork from "./MyWork";
+import Credentials from "./credentials";
+
 
 export default function MyCourses() {
   const [activeTab, setActiveTab] = useState("courses");
