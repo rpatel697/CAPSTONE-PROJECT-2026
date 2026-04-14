@@ -1,58 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function MyCourses() {
-  const [activeTab, setActiveTab] = useState("courses");
+  const activeTab = "courses";
 
   return (
+    <div className="space-y-6">
+  <div>
+    <h1 className="text-2xl font-bold text-[#221F35]">My Courses</h1>
+    <p className="text-sm text-[#7B8194] mt-1">
+      Track your progress, continue lessons, and review completed courses.
+    </p>
+  </div>
+
     <section className="rounded-3xl border border-[#ECECF2] bg-white overflow-hidden">
-      <div className="flex items-center gap-6 border-b border-[#ECECF2] px-8">
-        <button
-          onClick={() => setActiveTab("courses")}
-          className={`relative pb-4 pt-5 text-[15px] font-semibold transition-all duration-200 ${
-            activeTab === "courses"
-              ? "text-[#FF3864]"
-              : "text-[#7B8194] hover:text-[#3F4454]"
-          }`}
-        >
-          My Courses
-          {activeTab === "courses" && (
-            <span className="absolute bottom-0 left-0 h-[2px] w-full rounded-full bg-[#FF3864]" />
-          )}
-        </button>
-
-        <button
-          onClick={() => setActiveTab("work")}
-          className={`relative pb-4 pt-5 text-[15px] font-semibold transition-all duration-200 ${
-            activeTab === "work"
-              ? "text-[#FF3864]"
-              : "text-[#7B8194] hover:text-[#3F4454]"
-          }`}
-        >
-          My Work
-          {activeTab === "work" && (
-            <span className="absolute bottom-0 left-0 h-[2px] w-full rounded-full bg-[#FF3864]" />
-          )}
-        </button>
-
-        <button
-          onClick={() => setActiveTab("credentials")}
-          className={`relative pb-4 pt-5 text-[15px] font-semibold transition-all duration-200 ${
-            activeTab === "credentials"
-              ? "text-[#FF3864]"
-              : "text-[#7B8194] hover:text-[#3F4454]"
-          }`}
-        >
-          Credentials
-          {activeTab === "credentials" && (
-            <span className="absolute bottom-0 left-0 h-[2px] w-full rounded-full bg-[#FF3864]" />
-          )}
-        </button>
-      </div>
 
       {activeTab === "courses" && (
         <div className="space-y-8 p-8">
-          {/* PASTE your In Progress, Completed, Not Started,
-              Badges Earned, and Recent Activity code here */}
 
               {/* In Progress */}
              <div>
@@ -61,7 +24,7 @@ export default function MyCourses() {
                     {[
                       ["Design Thinking 101", "Block 2 of 6 • Sustainable Packaging", 2, "In Progress", "🎨"],
                       ["Business Model Canvas", "Block 4 of 6 • Map a Real Business Model", 4, "In Progress", "🗺️"],
-                      ["Financial Literacy 103", "Block 3 of 5 • Reading Financial Statements", 3, "In Progress", "💸"],
+                      ["Financial Literacy 103", "Block 3 of 6 • Reading Financial Statements", 3, "In Progress", "💸"],
                     ].map(([title, subtitle, progress, status, icon]) => (
                       <CourseCard key={title} title={title} subtitle={subtitle} progress={progress} total={6} status={status} icon={icon} tone="progress" />
                     ))}
@@ -96,10 +59,9 @@ export default function MyCourses() {
                 </div>
              
 
-                {/* BADGES EARNED */}       
+               { /* BADGES EARNED     
         <div className="mt-6">
-        <h3 className="text-[13px] font-semibold text-[#221F35] mb-3">
-            Badges Earned (6)
+        <h3 className="text-sm font-black text-[#221F35] mb-3">Badges Earned (6)
         </h3>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
@@ -126,12 +88,13 @@ export default function MyCourses() {
             ))}
         </div>
         </div>
+         */  }
+       
          
 
-                {/* RECENT ACTIVITY */}
+                {/* RECENT ACTIVITY 
                 <div className="mt-6">
-                <h3 className="text-[13px] font-semibold text-[#221F35] mb-3">
-                    Recent Activity
+                <h3 className="text-sm font-black text-[#221F35] mb-3">Recent Activity
                 </h3>
 
                     <div>
@@ -159,8 +122,9 @@ export default function MyCourses() {
                     </div>
                     ))}
                 </div>
-                </div>
 
+                </div>
+                 */  }
 
         </div>
       )}
@@ -173,6 +137,7 @@ export default function MyCourses() {
         <div className="p-8 text-sm text-[#7B8194]">Credentials content coming soon</div>
       )}
     </section>
+    </div>
   );
 }
 

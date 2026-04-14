@@ -10,6 +10,7 @@ import {
   User,
   Settings,
   MessageCircle,
+  LogOut
 } from "lucide-react";
 
 function SidebarItem({ icon: Icon, label, isActive, onClick, iconClass = "" }) {
@@ -45,10 +46,14 @@ function SidebarGroup({ title, children }) {
   );
 }
 
-export default function Sidebar({ activePage, setActivePage }) {
+export default function Sidebar({ activePage, setActivePage, sidebarOpen }) {
   return (
-   <aside className="fixed left-0 top-[64px] z-30 h-[calc(100vh-80px)] w-[240px] border-r border-[#ECECF2] bg-white">
-  <div className="flex h-full flex-col overflow-y-auto px-4 py-5">
+  <aside
+  className={`fixed left-0 top-[64px] z-30 h-[calc(100vh-64px)] w-[240px] border-r border-[#ECECF2] bg-white transition-transform duration-300 ${
+    sidebarOpen ? "translate-x-0" : "-translate-x-full"
+  }`}
+>  
+     <div className="flex h-full flex-col overflow-y-auto px-4 py-5">
    <SidebarGroup title="Main">
         <SidebarItem
           icon={House}
@@ -61,17 +66,25 @@ export default function Sidebar({ activePage, setActivePage }) {
         <SidebarItem
           icon={BookOpen}
           label="My Courses"
-          isActive={activePage === "courses"}
-          onClick={() => setActivePage("courses")}
+          isActive={activePage === "my-courses"}
+          onClick={() => setActivePage("my-courses")}
           iconClass="group-hover:rotate-[-6deg]"
         />
 
         <SidebarItem
           icon={BriefcaseBusiness}
           label="My Work"
-          isActive={activePage === "work"}
-          onClick={() => setActivePage("work")}
+          isActive={activePage === "my-work"}
+          onClick={() => setActivePage("my-work")}
           iconClass="group-hover:-translate-y-[1px]"
+        />
+
+         <SidebarItem
+          icon={BadgeCheck}
+          label="Credentials"
+          isActive={activePage === "credentials"}
+          onClick={() => setActivePage("credentials")}
+          iconClass="group-hover:scale-110"
         />
 
         <SidebarItem
@@ -82,13 +95,7 @@ export default function Sidebar({ activePage, setActivePage }) {
           iconClass="group-hover:rotate-[8deg]"
         />
 
-        <SidebarItem
-          icon={BadgeCheck}
-          label="Credentials"
-          isActive={activePage === "credentials"}
-          onClick={() => setActivePage("credentials")}
-          iconClass="group-hover:scale-110"
-        />
+       
       </SidebarGroup>
 
       <SidebarGroup title="Connect">
@@ -132,6 +139,14 @@ export default function Sidebar({ activePage, setActivePage }) {
           isActive={activePage === "settings"}
           onClick={() => setActivePage("settings")}
           iconClass="group-hover:rotate-45"
+        />
+
+         <SidebarItem
+          icon={LogOut}
+          label="Log Out"
+          isActive={false}
+          onClick={() => setActivePage("logout")}
+          iconClass="group-hover:-translate-x-[1px]"
         />
       </SidebarGroup>
 
