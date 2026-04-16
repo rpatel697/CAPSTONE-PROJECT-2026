@@ -1,6 +1,8 @@
-
+import { ShieldCheck, Sparkles } from "lucide-react";
 import { useState } from 'react'
 import './credentials.css'
+
+
 const curriculumOptions = [
   'Alberta Program of Studies',
   'British Columbia Curriculum (coming soon)',
@@ -208,17 +210,44 @@ function LockedCredential() {
 
 export default function Credentials() {
   return (
-    <main className="credentials-page">
-      <div className="credentials-shell">
-      
+    <section className="space-y-6">
+      <div className="overflow-hidden rounded-[28px] border border-[#ECECF2] bg-white shadow-sm">
+        <div className="relative border-b border-[#ECECF2] px-6 py-6 md:px-8">
+          <div className="absolute inset-0 bg-gradient-to-r from-[#F4FFF8] via-[#F2F8FF] to-[#FFF6FB] opacity-80" />
+          <div className="relative flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div className="flex items-start gap-4">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#EEF9F2] text-[#2FAF62] shadow-sm">
+                <ShieldCheck size={24} />
+              </div>
 
-        {credentials.map((credential) => (
-          <CredentialCard key={credential.title} credential={credential} />
-        ))}
+              <div>
+                <h1 className="text-[28px] font-black tracking-[-0.02em] text-[#221F35]">
+                  Credentials
+                </h1>
+                <p className="mt-1 text-sm text-[#7B8194]">
+                  View earned credentials, curriculum alignment, and what you’re close to unlocking next.
+                </p>
+              </div>
+            </div>
 
-        <div className="sub-title in-progress-title">In Progress (1)</div>
-        <LockedCredential />
+            <div className="flex items-center gap-2 self-start rounded-full bg-[#EEF9F2] px-4 py-2 text-sm font-semibold text-[#2FAF62]">
+              <Sparkles size={16} />
+              <span>{credentials.length} earned · 1 in progress</span>
+            </div>
+          </div>
+        </div>
+
+        <main className="credentials-page !min-h-0 !bg-transparent">
+          <div className="credentials-shell">
+            {credentials.map((credential) => (
+              <CredentialCard key={credential.title} credential={credential} />
+            ))}
+
+            <div className="sub-title in-progress-title">In Progress (1)</div>
+            <LockedCredential />
+          </div>
+        </main>
       </div>
-    </main>
-  )
+    </section>
+  );
 }
