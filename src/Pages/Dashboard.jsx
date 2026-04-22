@@ -8,6 +8,9 @@ import Credentials from "../components/dashboard/credentials";
 import GrowthSection from "../components/dashboard/GrowthSection";
 import ContactHatchloom from "../components/dashboard/ContactHatchloom";
 import EditProfile from "../components/dashboard/EditProfile";
+import LaunchPage from "../components/TopbarPages/LaunchPage";
+import ExplorePage from "../components/TopbarPages/ExplorePage";
+import ConnectPage from "../components/TopbarPages/ConnectPage";
 import HomePage from "../components/dashboard/HomePage";
 
 export default function Dashboard() {
@@ -20,6 +23,8 @@ export default function Dashboard() {
         <Topbar
           sidebarOpen={sidebarOpen}
           setSidebarOpen={setSidebarOpen}
+          setActivePage={setActivePage}
+          activePage={activePage}
         />
       </div>
 
@@ -77,6 +82,10 @@ export default function Dashboard() {
               <ContactHatchloom />
             </main>
           )}
+
+          {activePage === "explore" && <ExplorePage />}
+          {activePage === "connect" && <ConnectPage />}
+          {activePage === "launch" && <LaunchPage />}
         </div>
       </div>
     </div>
