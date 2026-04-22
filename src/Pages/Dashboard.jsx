@@ -8,6 +8,7 @@ import Credentials from "../components/dashboard/credentials";
 import GrowthSection from "../components/dashboard/GrowthSection";
 import ContactHatchloom from "../components/dashboard/ContactHatchloom";
 import EditProfile from "../components/dashboard/EditProfile";
+import HomePage from "../components/dashboard/HomePage";
 
 export default function Dashboard() {
   const [activePage, setActivePage] = useState("profile");
@@ -30,9 +31,16 @@ export default function Dashboard() {
         />
 
         <div
-          className={`h-[calc(100vh-80px)] w-full overflow-y-auto transition-all duration-300 ${sidebarOpen ? "ml-[240px]" : "ml-0"
-            }`}
+          className={`h-[calc(100vh-80px)] w-full overflow-y-auto transition-all duration-300 ${
+            sidebarOpen ? "ml-[240px]" : "ml-0"
+          }`}
         >
+          {activePage === "home" && (
+            <main className="p-4 md:p-8">
+              <HomePage />
+            </main>
+          )}
+
           {activePage === "profile" && (
             <main className="space-y-5 p-4 md:p-8">
               <ProfileHeader setActivePage={setActivePage} />
@@ -58,37 +66,15 @@ export default function Dashboard() {
             </main>
           )}
 
-          {activePage === "home" && (
-            <div className="flex min-h-[calc(100vh-180px)] items-center justify-center p-8">
-              <div className="w-full max-w-xl rounded-3xl border border-[#ECECF2] bg-white p-10 text-center shadow-sm">
-                <h2 className="text-xl font-bold text-[#221F35]">Home</h2>
-                <p className="mt-3 text-sm text-[#7B8194]">
-                  Home page coming soon.
-                </p>
-              </div>
-            </div>
-          )}
-
-          {activePage === "settings" && (
-            <div className="flex min-h-[calc(100vh-180px)] items-center justify-center p-8">
-              <div className="w-full max-w-xl rounded-3xl border border-[#ECECF2] bg-white p-10 text-center shadow-sm">
-                <h2 className="text-xl font-bold text-[#221F35]">Settings</h2>
-                <p className="mt-3 text-sm text-[#7B8194]">
-                  Settings page coming soon.
-                </p>
-              </div>
-            </div>
+          {activePage === "editProfile" && (
+            <main className="p-4 md:p-8">
+              <EditProfile />
+            </main>
           )}
 
           {activePage === "contact" && (
             <main className="p-4 md:p-8">
               <ContactHatchloom />
-            </main>
-          )}
-
-          {activePage === "editProfile" && (
-            <main className="p-4 md:p-8">
-              <EditProfile />
             </main>
           )}
         </div>

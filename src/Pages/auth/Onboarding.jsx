@@ -59,18 +59,18 @@ const provinceData = {
 const countries = ["Canada", "United States", "Australia", "India", "Other"];
 
 const avatars = [
-  "https://i.pravatar.cc/150?img=11",
-  "https://i.pravatar.cc/150?img=12",
-  "https://i.pravatar.cc/150?img=13",
-  "https://i.pravatar.cc/150?img=14",
-  "https://i.pravatar.cc/150?img=15",
-  "https://i.pravatar.cc/150?img=16",
-  "https://i.pravatar.cc/150?img=17",
-  "https://i.pravatar.cc/150?img=18",
-  "https://i.pravatar.cc/150?img=19",
-  "https://i.pravatar.cc/150?img=20",
-  "https://i.pravatar.cc/150?img=21",
-  "https://i.pravatar.cc/150?img=22",
+  "/Avatars/student-1.png",
+  "/Avatars/student-2.png",
+  "/Avatars/student-3.png",
+  "/Avatars/student-4.png",
+  "/Avatars/student-5.png",
+  "/Avatars/student-6.png",
+  "/Avatars/student-7.png",
+  "/Avatars/student-8.png",
+  "/Avatars/student-9.png",
+  "/Avatars/student-10.png",
+  "/Avatars/student-11.png",
+  "/Avatars/student-12.png",
 ];
 
 const interestsList = [
@@ -267,9 +267,9 @@ export default function Onboarding() {
 
   return (
     <div className="onboarding-page">
-      <div className="bg-circle bg-circle-1" />
-      <div className="bg-circle bg-circle-2" />
-      <div className="bg-circle bg-circle-3" />
+      <div className="bg-mesh bg-mesh-pink" />
+      <div className="bg-mesh bg-mesh-teal" />
+      <div className="bg-grid" />
 
       <div className="card">
         {step <= 8 && (
@@ -296,10 +296,10 @@ export default function Onboarding() {
 
             <button className="google-btn" onClick={handleGoogleContinue}>
               <img
-  src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
-  alt="google"
-  className="google-icon"
-/>
+                src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+                alt="google"
+                className="google-icon"
+              />
               Continue with Google
             </button>
 
@@ -417,13 +417,11 @@ export default function Onboarding() {
             </p>
 
             <div className="avatar-grid">
-              {avatars.map((avatar) => (
+              {avatars.map((avatar, index) => (
                 <button
-                  key={avatar}
+                  key={index}
                   type="button"
-                  className={`avatar-item ${
-                    formData.avatar === avatar ? "selected-avatar" : ""
-                  }`}
+                  className={`avatar-item ${formData.avatar === avatar ? "selected-avatar" : ""}`}
                   onClick={() => updateField("avatar", avatar)}
                 >
                   <img src={avatar} alt="avatar" />
@@ -446,26 +444,25 @@ export default function Onboarding() {
 
             <p className="hint">Select 3 to 5 interests</p>
 
-           <div className="option-grid">
-  {interestsList.map((item) => {
-    const selected = formData.interests.includes(item.label);
-    const Icon = item.icon;
+            <div className="option-grid">
+              {interestsList.map((item) => {
+                const selected = formData.interests.includes(item.label);
+                const Icon = item.icon;
 
-    return (
-      <button
-        key={item.label}
-        type="button"
-        className={`option-card ${selected ? "selected-card" : ""} ${
-          item.label === "Other" ? "other-card" : ""
-        }`}
-        onClick={() => toggleMultiSelect("interests", item.label, 5)}
-      >
-        <Icon className="option-icon" />
-        <span>{item.label}</span>
-      </button>
-    );
-  })}
-</div>
+                return (
+                  <button
+                    key={item.label}
+                    type="button"
+                    className={`option-card ${selected ? "selected-card" : ""} ${item.label === "Other" ? "other-card" : ""
+                      }`}
+                    onClick={() => toggleMultiSelect("interests", item.label, 5)}
+                  >
+                    <Icon className="option-icon" />
+                    <span>{item.label}</span>
+                  </button>
+                );
+              })}
+            </div>
 
             {formData.interests.includes("Other") && (
               <div className="field-group top-space">
@@ -490,26 +487,25 @@ export default function Onboarding() {
 
             <p className="hint">Pick 1 to 3 skills</p>
 
-           <div className="option-grid">
-  {skillsList.map((item) => {
-    const selected = formData.skills.includes(item.label);
-    const Icon = item.icon;
+            <div className="option-grid">
+              {skillsList.map((item) => {
+                const selected = formData.skills.includes(item.label);
+                const Icon = item.icon;
 
-    return (
-      <button
-        key={item.label}
-        type="button"
-        className={`option-card ${selected ? "selected-card" : ""} ${
-          item.label === "Other" ? "other-card" : ""
-        }`}
-        onClick={() => toggleMultiSelect("skills", item.label, 3)}
-      >
-        <Icon className="option-icon" />
-        <span>{item.label}</span>
-      </button>
-    );
-  })}
-</div>
+                return (
+                  <button
+                    key={item.label}
+                    type="button"
+                    className={`option-card ${selected ? "selected-card" : ""} ${item.label === "Other" ? "other-card" : ""
+                      }`}
+                    onClick={() => toggleMultiSelect("skills", item.label, 3)}
+                  >
+                    <Icon className="option-icon" />
+                    <span>{item.label}</span>
+                  </button>
+                );
+              })}
+            </div>
 
             {formData.skills.includes("Other") && (
               <div className="field-group top-space">
